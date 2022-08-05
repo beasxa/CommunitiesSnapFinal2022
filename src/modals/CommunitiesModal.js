@@ -42,8 +42,8 @@ export default function CommunitiesModal({ navigation, route }) {
             <CommunitiesCard navigation={navigation} name={"CodeTalk"} description={"Technology Training Program"} distance={"1.4 Miles"} imageUrl={require("../../assets/snapchat/CodeTalkLogo.png")} joined={joined} active={true} />
           </TouchableOpacity>
 
-          <CommunitiesCard name={"Santa Monica College"} description={"Community College"} distance={"2.9 Miles"} imageUrl={require("../../assets/snapchat/SMCLogo.jpg")} />
-          <CommunitiesCard name={"Snap Academies"} description={"Internship Program"} distance={"3.0 Miles"} imageUrl={require("../../assets/snapchat/SnapBlackLogo.jpg")} />
+          <CommunitiesCard name={"Snap Academies"} description={"Internship Program"} distance={"2.9 Miles"} imageUrl={require("../../assets/snapchat/SnapBlackLogo.jpg")} />
+          <CommunitiesCard name={"Santa Monica College"} description={"Community College"} distance={"3.0 Miles"} imageUrl={require("../../assets/snapchat/SMCLogo.jpg")} />
 
         </View>
       </View>
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   communitiesContentTop: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // width: 7,
   },
   closeCommunitiesModalContainer: {
     backgroundColor: "#eceef0",

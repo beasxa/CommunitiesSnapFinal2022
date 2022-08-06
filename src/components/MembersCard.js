@@ -14,7 +14,8 @@ export default function CommunitiesCard ({ name, imageUrl }) {
         </View>
 
         <View style={ styles.featuredCommunityJoinContainer }>
-          <Text style={ styles.featuredCommunityJoinText }>Add</Text>
+          {/* <Text style={ styles.featuredCommunityJoinText }>Add</Text> */}
+          <Image style={ styles.featuredCommunityJoinImage } source={require("../../assets/snapchat/add-user.png")} />
         </View>
     </View>
     );
@@ -67,11 +68,17 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 50,
     height: 30,
+    alignItems: "center",
+    justifyContent: "center",
   },
   featuredCommunityJoinText: {
     textAlign: "center",
     fontWeight: "800",
     marginTop: 7,
     fontSize: 12
-  }
+  },
+  featuredCommunityJoinImage: {
+    width: 12,
+    height: 12,
+  },
 });

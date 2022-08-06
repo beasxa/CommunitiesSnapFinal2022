@@ -76,7 +76,7 @@ export default function CommunitiesModal({ navigation, route }) {
               navigation.navigate("Organization");
             }}
           >
-            <CommunitiesCard key={codeTalkId} communityId={codeTalkId} navigation={navigation} name={"Code Talk"} description={"Technology Training Program"} distance={"1.4 Miles"} imageUrl={require("../../assets/snapchat/CodeTalkLogo.png")} joined={joinedCodetalk} active={true} onJoin={onJoin} />
+            <CommunitiesCard key={codeTalkId} communityId={codeTalkId} navigation={navigation} name={"Code Talk"} description={"Technology Training Program"} distance={"1.4 Miles"} imageUrl={require("../../assets/snapchat/CodeTalkLogo.png")} joined={joinedCodetalk} active={true} onJoin={onJoin} codeTalk={true} />
           </TouchableOpacity>
 
           <CommunitiesCard key={snapAcademiesId} communityId={snapAcademiesId} name={"Snap Academies"} description={"Internship Program"} distance={"2.9 Miles"} imageUrl={require("../../assets/snapchat/SnapBlackLogo.jpg")} joined={joinedSnapAcademies} onJoin={onJoin} />

@@ -14,10 +14,6 @@ const Stack = createStackNavigator();
 export default function ProfileStack() {
   return (
     <Stack.Navigator>
-      {/* <Stack.Group>
-        <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Group> */}
       <Stack.Group screenOptions={{ presentation: 'modal', headerShown: false, cardStyle:{ backgroundColor: "rgba(255, 255, 255, 0)", opacity: 0.99 } }}>
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="CommunityMembers" component={CommunityMembersScreen} />

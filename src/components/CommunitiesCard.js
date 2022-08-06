@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
 
-export default function CommunitiesCard ({ communityId, name, description, distance, imageUrl, navigation, joined, active, onJoin }) {
+export default function CommunitiesCard ({ communityId, name, description, distance, imageUrl, navigation, joined, active, onJoin, codeTalk }) {
   const [selected, setSelected] = useState(joined);
 
   useEffect(() => {
@@ -13,7 +13,11 @@ export default function CommunitiesCard ({ communityId, name, description, dista
 
       <View style={ styles.featuredCommunitiesCardLeft}>
         <View style={ styles.featuredCommunityStoryContainer }>
-          <Image style={ styles.featuredCommunityLogo } source={imageUrl} />
+          <View style={  styles.featuredCommunityStoryInnerContainer }>
+            <View style={ codeTalk ? styles.featuredCommunityStoryOutterContainer : "" }>
+              <Image style={ codeTalk ? styles.featuredCommunityLogoCodeTalk : styles.featuredCommunityLogo } source={imageUrl} />
+            </View>
+          </View>
         </View>
 
         <View style= { styles.featuredCommunityTextContainer }>
@@ -37,7 +41,7 @@ export default function CommunitiesCard ({ communityId, name, description, dista
                 
               }}
               >
-              <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4FAAF8" : "#eceef0" }] }>
+              <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4faaf8" : "#eceef0" }] }>
                 <Text style={ [styles.featuredCommunityJoinText, selected ? styles.selected : ""] }>{ selected ? "Joined" : "Join"}</Text>
               </View>
             </TouchableOpacity> :
@@ -49,7 +53,7 @@ export default function CommunitiesCard ({ communityId, name, description, dista
                 onJoin(communityId, !selected);
               }}
               >
-              <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4FAAF8" : "#eceef0" }] }>
+              <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4faaf8" : "#eceef0" }] }>
                 <Text style={ [styles.featuredCommunityJoinText, selected ? styles.selected : ""] }>{ selected ? "Joined" : "Join"}</Text>
               </View>
             </TouchableOpacity>
@@ -77,17 +81,31 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   featuredCommunityStoryContainer: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#FFFC00",
+    backgroundColor: "#fae44c",
     borderRadius: 50,
     alignContent: "center",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 2,
+  },
+  featuredCommunityStoryOutterContainer: {
+    backgroundColor: "#000",
+    padding: 1,
+    borderRadius: 50,
+  },
+  featuredCommunityStoryInnerContainer: {
+    backgroundColor: "#fff",
+    padding: 2,
+    borderRadius: 50,
   },
   featuredCommunityLogo: {
     width: 45,
     height: 45,
+    borderRadius: 50,
+  },
+  featuredCommunityLogoCodeTalk: {
+    width: 44,
+    height: 44,
     borderRadius: 50,
   },
   featuredCommunityTextContainer: {

@@ -57,16 +57,16 @@ export default function ProfileScreen({ navigation }) {
               <ProfileBadge imageUrl={require("../../assets/snapchat/SnapAcademiesBadgeIcon.png")} text={"Snap Academies"} containerStyle={styles.profileBadgeContainerStyle} textStyle={styles.profileBadgeIconText} />
             </View>
 
-            <ProfileCard topHeader={""} header={"Find Friends on Snapchat"} subtext={"Tap to sync your contacts"} leftImage={require("../../assets/snapchat/findFriends.png")} rightImage={require("../../assets/snapchat/findFriendsClose.png")} />
+            <ProfileCard topHeader={""} header={"Find Friends on Snapchat"} subtext={"Tap to sync your contacts"} leftImage={require("../../assets/snapchat/notebook.png")} rightImage={require("../../assets/snapchat/findFriendsClose.png")} />
             <ProfileCard topHeader={"My Stories"} header={"Add to My Story"} subtext={""} leftImage={require("../../assets/snapchat/cameraIcon.png")} rightImage={require("../../assets/snapchat/addToMyStoryIcon.png")} style={styles.profileCardContainerStyle}/>
-            <ProfileCard topHeader={"Friends"} header={"Add Friends"} subtext={""} leftImage={require("../../assets/snapchat/addFriendsIcon.png")} rightImage={require("../../assets/snapchat/addFriendsArrow.png")} style={styles.profileCardContainerStyle}/>
+            <ProfileCard topHeader={"Friends"} header={"Add Friends"} subtext={""} leftImage={require("../../assets/snapchat/add-user.png")} rightImage={require("../../assets/snapchat/addFriendsArrow.png")} style={styles.profileCardContainerStyle}/>
 
             <View style={ [styles.profileMyFriends, styles.shadowProp ] }>
               <Image style={ styles.profileMyFriendsImage } source={require("../../assets/snapchat/profileFriends.png")} />
               
               <View style={ styles.profileMyFriendsTextContainer }>
                 <View style={ styles.profileMyFriendsTextLeft }>
-                  <Image style={ styles.profileMyFriendsTextImage } source={require("../../assets/snapchat/addFriendsIcon.png")} />
+                  <Image style={ styles.profileMyFriendsTextImage } source={require("../../assets/snapchat/friendlist.png")} />
                 </View>
                 <View style={ styles.profileMyFriendsTextRight }>
                   <Text style={ styles.profileMyFriendsText }>My Friends</Text>
@@ -195,12 +195,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     flexDirection: "row",
     marginTop: 10,
-    paddingLeft: 5,
-    alignItems: "center"
+    alignItems: "center",
   },
   profileMyFriendsTextImage: {
-    width: 25,
-    height: 25,
+    width: 35,
+    height: 35,
     resizeMode: "contain"
   },
   profileMyFriendsTextRight: {

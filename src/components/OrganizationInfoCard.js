@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     marginBottom: 15,
   },
   featuredCommunityStoryContainer: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   communityText: {
-    fontSize: 13,
+    fontSize: 14,
   },
   featuredCommunityJoinContainer: {
     position: "absolute",

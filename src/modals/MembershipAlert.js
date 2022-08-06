@@ -1,9 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function MembershipAlert({ navigation, route }) {
-  const joined = route.params;
-  // console.log(joined);
+export default function MembershipAlert({ navigation }) {
   return (
     <View style={ styles.container }>
       <View style={ styles.membershipAlertContainer }>
@@ -16,7 +14,7 @@ export default function MembershipAlert({ navigation, route }) {
             activeOpacity={0.7}
             onPress={() => {
               navigation.goBack();
-              navigation.navigate("Communities", {joined: joined});
+              navigation.navigate("Communities");
           }}
           >
           <View style={ [styles.membershipAlertButtonContainer, styles.shadowProp] }>

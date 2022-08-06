@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
 
-export default function CommunitiesCard ({ name, description, distance, imageUrl, navigation, joined, active }) {
-  const [selected, setSelected] = useState(joined ? true : false);
+export default function CommunitiesCard ({ communityId, name, description, distance, imageUrl, navigation, joined, active, onJoin }) {
+  const [selected, setSelected] = useState(joined);
+
+  useEffect(() => {
+    setSelected(joined);
+  }, [joined]);
   return (
     <View style={ styles.featuredCommunitiesCard }>
 
@@ -24,12 +28,13 @@ export default function CommunitiesCard ({ name, description, distance, imageUrl
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={() => {
-                // navigation.navigate("Map");
                 setSelected(!selected);
                 if (!selected) {
                   navigation.goBack();
-                  navigation.navigate("Membership", {joined: !selected});
+                  navigation.navigate("Membership");
                 }
+                onJoin(communityId, !selected);
+                
               }}
               >
               <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4FAAF8" : "#eceef0" }] }>
@@ -41,6 +46,7 @@ export default function CommunitiesCard ({ name, description, distance, imageUrl
               activeOpacity={0.7}
               onPress={() => {
                 setSelected(!selected);
+                onJoin(communityId, !selected);
               }}
               >
               <View style={ [styles.featuredCommunityJoinContainer, { backgroundColor: selected ? "#4FAAF8" : "#eceef0" }] }>

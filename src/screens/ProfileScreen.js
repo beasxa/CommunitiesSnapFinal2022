@@ -21,7 +21,7 @@ export default function ProfileScreen({ navigation }) {
           </TouchableOpacity>
           <View style={ styles.profileModalTopRight }>
             <MapTopIcon imageUrl={require("../../assets/snapchat/uploadw.png")} smaller={true} />
-            <MapTopIcon imageUrl={require("../../assets/snapchat/gearw.png")} smaller={true} />
+            <MapTopIcon imageUrl={require("../../assets/snapchat/gearw.png")} smaller={true}  style={ styles.profileModalTopRightItem }/>
           </View>
         </View>
 
@@ -103,9 +103,12 @@ const styles = StyleSheet.create({
   profileModalTopLeft: {
   },
   profileModalTopRight: {
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     flexDirection: "row",
     width: 108,
+  },
+  profileModalTopRightItem: {
+    marginLeft: 8,
   },
   profileContainer: {
     height: "70%",

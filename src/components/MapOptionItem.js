@@ -14,20 +14,22 @@ const styles = StyleSheet.create({
   mapOptionsIconContainer: {
     width: 35,
     marginTop: 10,
+    alignItems: "center",
   },
   mapOptionsIconContainerTransparent: {
-    width: 33,
+    width: 25,
     marginTop: 10,
     backgroundColor: "rgba(255, 255, 255, 0.4)",
     borderRadius: 50,
+    alignItems: "center",
   },
   mapOptionIcon: {
     width: 33,
     height: 33,
   },
   mapOptionIconTransparent: {
-    width: 33,
-    height: 33,
+    width: 25,
+    height: 25,
   },
   shadowProp: {
     shadowColor: '#171717',

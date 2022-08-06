@@ -1,12 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 import CommunitiesCard from '../components/CommunitiesCard';
 import SearchBox from '../components/SearchBox';
 
+import db from "../../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useAuthentication } from "../utils/hooks/useAuthentication";
+
 export default function CommunitiesModal({ navigation, route }) {
-  const newRoute = {"joined": false}
-  const { joined } = route.params ? route.params : newRoute;
+  // const newRoute = {"joined": false}
+  // const { joined } = route.params ? route.params : newRoute;
+  const { user, userData } = useAuthentication();
+  const codeTalkId = "lht7wxNInPIl2rYFhvSL";
+  const snapAcademiesId = "QWG7Ox7N1ZXn28tyslcd";
+  const santaMonicaCollegeId = "lPXJBB8UUGhrfG4ymB8s";
+
+  const [joinedCodetalk, setJoinedCodeTalk] = useState(false);
+  const [joinedSnapAcademies, setJoinedSnapAcademies] = useState(false);
+  const [joinedSantaMonicaCollege, setJoinedSantaMonicaCollege] = useState(false);
+
+  useEffect(() => {
+    if (userData) {
+      setJoinedCodeTalk(userData.communities[codeTalkId] ? userData.communities[codeTalkId] : false);
+      setJoinedSnapAcademies(userData.communities[snapAcademiesId] ? userData.communities[snapAcademiesId] : false);
+      setJoinedSantaMonicaCollege(userData.communities[santaMonicaCollegeId] ? userData.communities[santaMonicaCollegeId] : false);
+    }
+  }, [userData]);
+
+  const onJoin = async (communityId, selected) => {
+    const userRef = doc(db, "Users", userData._id);
+    const docSnap = await getDoc(userRef);
+
+    // console.log(docSnap.data());
+
+    await updateDoc(userRef, {
+      "communities": {
+        ...docSnap.data().communities,
+        [communityId]: selected
+      }
+    });
+  }
+
   return (
     <View style={ styles.container }>
       <View style={ styles.communitiesContainer }>
@@ -14,7 +49,9 @@ export default function CommunitiesModal({ navigation, route }) {
 
           <View style={ styles.communitiesContentTop }>
 
-            <SearchBox initialText={"Discover Communities"} />
+            <View style={ styles.communitiesSearchContainer }>
+              <SearchBox initialText={"Discover Communities"} />
+            </View>
 
             <TouchableOpacity
               activeOpacity={0.7}
@@ -39,11 +76,11 @@ export default function CommunitiesModal({ navigation, route }) {
               navigation.navigate("Organization");
             }}
           >
-            <CommunitiesCard navigation={navigation} name={"CodeTalk"} description={"Technology Training Program"} distance={"1.4 Miles"} imageUrl={require("../../assets/snapchat/CodeTalkLogo.png")} joined={joined} active={true} />
+            <CommunitiesCard key={codeTalkId} communityId={codeTalkId} navigation={navigation} name={"Code Talk"} description={"Technology Training Program"} distance={"1.4 Miles"} imageUrl={require("../../assets/snapchat/CodeTalkLogo.png")} joined={joinedCodetalk} active={true} onJoin={onJoin} />
           </TouchableOpacity>
 
-          <CommunitiesCard name={"Snap Academies"} description={"Internship Program"} distance={"2.9 Miles"} imageUrl={require("../../assets/snapchat/SnapBlackLogo.jpg")} />
-          <CommunitiesCard name={"Santa Monica College"} description={"Community College"} distance={"3.0 Miles"} imageUrl={require("../../assets/snapchat/SMCLogo.jpg")} />
+          <CommunitiesCard key={snapAcademiesId} communityId={snapAcademiesId} name={"Snap Academies"} description={"Internship Program"} distance={"2.9 Miles"} imageUrl={require("../../assets/snapchat/SnapBlackLogo.jpg")} joined={joinedSnapAcademies} onJoin={onJoin} />
+          <CommunitiesCard key={santaMonicaCollegeId} communityId={santaMonicaCollegeId} name={"Santa Monica College"} description={"Community College"} distance={"3.0 Miles"} imageUrl={require("../../assets/snapchat/SMCLogo.jpg")} joined={joinedSantaMonicaCollege} onJoin={onJoin} />
 
         </View>
       </View>
@@ -75,14 +112,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  communitiesSearchContainer: {
+    width: "85%",
+
+  },
   closeCommunitiesModalContainer: {
     backgroundColor: "#eceef0",
-    padding: 15,
+    padding: 13,
     borderRadius: 50,
   },
   closeCommunitiesIcon: {
-    width: 5,
-    height: 5
+    width: 10,
+    height: 10
   },
 
   featuredCommunitiesContainer: {

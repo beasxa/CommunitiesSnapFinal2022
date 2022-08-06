@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 35,
     height: 35,
-    marginLeft: 5,
+    marginLeft: 3,
   },
   currentLocationStory: {
     width: 30,

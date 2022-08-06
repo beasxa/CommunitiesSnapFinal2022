@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 70,
     position: "absolute",
-    top: 50,
+    top: 45,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingLeft: 10,

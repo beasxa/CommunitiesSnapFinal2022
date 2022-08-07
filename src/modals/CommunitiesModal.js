@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   communitiesContent: {
-    marginTop: 20,
+    marginTop: 15,
     marginLeft: 15,
     marginRight: 15
   },

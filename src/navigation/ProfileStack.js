@@ -2,12 +2,8 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 // Screens
-import MapScreen from "../screens/MapScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import CommunityMembersScreen from "../screens/CommunityMembersScreen";
-
-// Modals
-import CommunitiesModal from "../modals/CommunitiesModal";
 
 const Stack = createStackNavigator();
 

@@ -57,10 +57,10 @@ export default function CommunityMembersScreen({ navigation }) {
           
           <View style={styles.membersContainer}>
               <MembersCard name="Ashley Beasley" imageUrl={require("../../assets/snapchat/Ashley.png")}/>
+              <MembersCard name="Nyah Gaitan" imageUrl={require("../../assets/snapchat/Nyah.png")}/>
               <MembersCard name="Diego Godinez" imageUrl={require("../../assets/snapchat/Diego.png")}/>
-              <MembersCard name="Nyah Gaitan" imageUrl={require("../../assets/snapchat/placeholder.png")}/>
-              <MembersCard name="Vanessa Malabanan" imageUrl={require("../../assets/snapchat/Vanessa.png")}/>
-              <MembersCard name="Community Member" imageUrl={require("../../assets/snapchat/placeholder.png")}/>
+              <MembersCard name="Gabriel Reynoso" imageUrl={require("../../assets/snapchat/G.png")}/>
+              <MembersCard name="Josefine Ash" imageUrl={require("../../assets/snapchat/Josie.png")}/>
           </View>
 
         </View>
